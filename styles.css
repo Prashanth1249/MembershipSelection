@@ -1,0 +1,238 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.page-container {
+  width: 1200px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.top-info,
+.bottom-info {
+  background: #fff3b0;
+  text-align: center;
+  flex: 0 0 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.left-column {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0px 10px;
+  padding-left: 0px;
+  gap: 10px;
+}
+.plans {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: 10px;
+  box-sizing: border-box;
+}
+.plan {
+  display: flex;
+  background: white;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  height: 20%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.plan:hover {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+.plan .icon {
+  width: 62px;
+  background: #85aaff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+.plan .plan-name {
+  padding: 10px;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.plan .plan-name-bottom {
+  font-size: 10px;
+  padding: 0px;
+  margin: 0px;
+}
+.plan.selected {
+  background: #ccc;
+  color: black;
+}
+.plan.selected .plan-name-bottom {
+  color: black;
+}
+.side-info {
+  flex: 0 0 40%;
+  max-height: 40%;
+  background: #fff3b0;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.main-description {
+  background: #ccc;
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+@media (max-width: 768px) {
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .sidebar-toggle {
+    display: none;
+  }
+  .page-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .top-info {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 7%;
+    background: #fff3b0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bottom-info {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 7%;
+    background: #fff3b0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .content {
+    position: absolute;
+    top: 7%;
+    bottom: 7%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .left-column {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 18%;
+  }
+  .plans {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px;
+    background: #fff3b0;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    border-bottom: 1px solid #ccc;
+    height: 70px;
+    background-color: #ccc;
+  }
+  .plan {
+    flex: 0 0 auto;
+    min-width: 140px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+    height: 80%;
+  }
+  .plan .icon {
+    display: none;
+  }
+  .plan .plan-name {
+    font-size: 14px;
+  }
+  .plan .plan-name .plan-name-bottom {
+    margin: 0;
+  }
+  .plan.selected {
+    background: orange;
+    color: #fff;
+  }
+  .side-info {
+    display: none;
+  }
+  .main-description {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    background: #ccc;
+  }
+}
+@media (min-width: 769px) and (max-width: 1194px) {
+  .page-container {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+  }
+}
+@media (min-width: 769px) {
+  .sidebar-toggle {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .page-container.collapsed .left-column {
+    width: 60px;
+    overflow: hidden;
+  }
+  .page-container.collapsed .plan-name {
+    display: none;
+  }
+  .page-container.collapsed .side-info {
+    visibility: hidden;
+  }
+  .page-container.collapsed .main-description {
+    flex: 1 1 auto;
+  }
+}
